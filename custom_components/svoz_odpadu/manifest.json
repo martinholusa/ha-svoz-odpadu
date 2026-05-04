@@ -3,7 +3,7 @@
   "name": "Svoz Odpadu",
   "version": "1.1.1",
   "config_flow": true,
-  "documentation": "https://github.com/martinholusa/svoz_odpadu",
+  "documentation": "[https://github.com/martinholusa/ha-svoz-odpadu](https://github.com/martinholusa/ha-svoz-odpadu)",
   "requirements": [],
   "dependencies": [],
   "codeowners": ["@martinholusa"],
