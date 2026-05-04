@@ -1,0 +1,130 @@
+from __future__ import annotations
+from datetime import date
+
+CZ_DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
+
+WASTE_DATA: dict[str, dict] = {
+    "papir": {
+        "label": "Papír",
+        "icon": "mdi:newspaper-variant-outline",
+        "emoji": "📄",
+        "dates": [
+            date(2026, 5, 5),
+            date(2026, 6, 16),
+            date(2026, 7, 14),
+            date(2026, 8, 11),
+            date(2026, 9, 8),
+            date(2026, 10, 6),
+            date(2026, 11, 3),
+            date(2026, 12, 7),
+        ],
+    },
+    "plasty": {
+        "label": "Plasty",
+        "icon": "mdi:recycle",
+        "emoji": "♻️",
+        "dates": [
+            date(2026, 4, 30),
+            date(2026, 5, 28),
+            date(2026, 6, 25),
+            date(2026, 7, 30),
+            date(2026, 8, 27),
+            date(2026, 9, 24),
+            date(2026, 10, 29),
+            date(2026, 11, 26),
+            date(2026, 12, 21),
+        ],
+    },
+    "komunal": {
+        "label": "Komunální",
+        "icon": "mdi:trash-can-outline",
+        "emoji": "🗑️",
+        "dates": [
+            date(2026, 5, 11),
+            date(2026, 5, 25),
+            date(2026, 6, 8),
+            date(2026, 6, 22),
+            date(2026, 7, 6),
+            date(2026, 7, 20),
+            date(2026, 8, 3),
+            date(2026, 8, 17),
+            date(2026, 8, 31),
+            date(2026, 9, 14),
+            date(2026, 9, 28),
+            date(2026, 10, 12),
+            date(2026, 10, 26),
+            date(2026, 11, 9),
+            date(2026, 11, 23),
+            date(2026, 12, 7),
+            date(2026, 12, 21),
+        ],
+    },
+    "bioodpad": {
+        "label": "Bioodpad",
+        "icon": "mdi:leaf",
+        "emoji": "🌿",
+        "dates": [
+            date(2026, 5, 8),
+            date(2026, 5, 22),
+            date(2026, 6, 5),
+            date(2026, 6, 19),
+            date(2026, 7, 3),
+            date(2026, 7, 17),
+            date(2026, 7, 31),
+            date(2026, 8, 14),
+            date(2026, 8, 28),
+            date(2026, 9, 11),
+            date(2026, 9, 25),
+            date(2026, 10, 9),
+            date(2026, 10, 23),
+            date(2026, 11, 6),
+            date(2026, 11, 20),
+            date(2026, 12, 4),
+        ],
+    },
+}
+
+
+def dates_to_str(dates: list[date]) -> str:
+    return "\n".join(d.isoformat() for d in dates)
+
+
+def parse_dates(dates_str: str) -> list[date]:
+    result = []
+    for line in dates_str.splitlines():
+        line = line.strip().strip(",")
+        if not line:
+            continue
+        try:
+            result.append(date.fromisoformat(line))
+        except ValueError:
+            pass
+    return sorted(result)
+
+
+def resolve_dates(key: str, options: dict) -> list[date]:
+    if key in options and options[key].strip():
+        return parse_dates(options[key])
+    return WASTE_DATA[key]["dates"]
+
+
+def _next_date(dates: list[date]) -> date | None:
+    today = date.today()
+    future = [d for d in dates if d >= today]
+    return future[0] if future else None
+
+
+def _format_odpocet(days: int) -> str:
+    if days < 0:
+        return "Proběhl"
+    if days == 0:
+        return "Dnes!"
+    if days == 1:
+        return "Zítra"
+    if days in (2, 3, 4):
+        return f"Za {days} dny"
+    return f"Za {days} dní"
+
+
+def _format_den_datum(d: date) -> str:
+    return f"{CZ_DAYS[d.weekday()]} {d.day}. {d.month}."

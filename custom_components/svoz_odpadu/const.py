@@ -1,0 +1,1 @@
+DOMAIN = "svoz_odpadu"

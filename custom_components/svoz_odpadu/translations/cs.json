@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Svoz Odpadu",
+        "description": "Klikněte na Odeslat — integrace vytvoří senzory automaticky s výchozími termíny pro rok 2026."
+      }
+    },
+    "abort": {
+      "already_configured": "Integrace je již nainstalována."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Termíny svozů",
+        "description": "Každý datum na nový řádek ve formátu RRRR-MM-DD (např. 2026-05-11). Po uložení se senzory okamžitě aktualizují.",
+        "data": {
+          "papir": "📄 Papír",
+          "plasty": "♻️ Plasty",
+          "komunal": "🗑️ Komunální odpad",
+          "bioodpad": "🌿 Bioodpad"
+        }
+      }
+    }
+  }
+}
