@@ -3,8 +3,35 @@
     "step": {
       "user": {
         "title": "Svoz Odpadu",
-        "description": "Klikněte na Odeslat — integrace vytvoří senzory automaticky s výchozími termíny pro rok 2026."
+        "description": "Jak chcete zadat termíny svozů?",
+        "data": { "method": "Způsob zadání" }
+      },
+      "ics_file": {
+        "title": "Import ze souboru .ics",
+        "description": "Vyberte soubor .ics z vašeho počítače.",
+        "data": { "ics_file": "Soubor .ics" }
+      },
+      "ics_url": {
+        "title": "Import z URL",
+        "description": "Zadejte odkaz na kalendář ve formátu .ics (např. z webu obce).",
+        "data": { "url": "URL adresa" }
+      },
+      "ics_mapping": {
+        "title": "Přiřazení typů odpadu",
+        "description": "Nalezeno {count} typů událostí: {titles}… Přiřaďte je k typům odpadu.",
+        "data": {
+          "map_papir":    "📄 Papír",
+          "map_plasty":   "♻️ Plasty",
+          "map_komunal":  "🗑️ Komunální odpad",
+          "map_bioodpad": "🌿 Bioodpad"
+        }
       }
+    },
+    "error": {
+      "file_not_found":  "Soubor nebyl nalezen — zkontrolujte cestu.",
+      "ics_empty":       "Soubor neobsahuje žádné události.",
+      "ics_parse_error": "Nepodařilo se načíst soubor .ics.",
+      "cannot_connect":  "Nelze se připojit — zkontrolujte URL."
     },
     "abort": {
       "already_configured": "Integrace je již nainstalována."
@@ -13,15 +40,46 @@
   "options": {
     "step": {
       "init": {
-        "title": "Termíny svozů",
-        "description": "Každý datum na nový řádek ve formátu RRRR-MM-DD (např. 2026-05-11). Po uložení se senzory okamžitě aktualizují.",
+        "title": "Svoz Odpadu — Nastavení",
+        "description": "Jak chcete aktualizovat termíny svozů?",
+        "data": { "method": "Způsob zadání" }
+      },
+      "ics_file": {
+        "title": "Import ze souboru .ics",
+        "description": "Nahrajte soubor do složky `/config/` a zadejte cestu.",
+        "data": { "path": "Cesta k souboru" }
+      },
+      "ics_url": {
+        "title": "Import z URL",
+        "description": "Zadejte odkaz na kalendář ve formátu .ics.",
+        "data": { "url": "URL adresa" }
+      },
+      "ics_mapping": {
+        "title": "Přiřazení typů odpadu",
+        "description": "Nalezeno {count} typů událostí: {titles}… Přiřaďte je k typům odpadu.",
         "data": {
-          "papir": "📄 Papír",
-          "plasty": "♻️ Plasty",
-          "komunal": "🗑️ Komunální odpad",
+          "map_papir":    "📄 Papír",
+          "map_plasty":   "♻️ Plasty",
+          "map_komunal":  "🗑️ Komunální odpad",
+          "map_bioodpad": "🌿 Bioodpad"
+        }
+      },
+      "manual": {
+        "title": "Ruční zadání termínů",
+        "description": "Každý datum na nový řádek ve formátu RRRR-MM-DD (např. 2026-05-11).",
+        "data": {
+          "papir":    "📄 Papír",
+          "plasty":   "♻️ Plasty",
+          "komunal":  "🗑️ Komunální odpad",
           "bioodpad": "🌿 Bioodpad"
         }
       }
+    },
+    "error": {
+      "file_not_found":  "Soubor nebyl nalezen — zkontrolujte cestu.",
+      "ics_empty":       "Soubor neobsahuje žádné události.",
+      "ics_parse_error": "Nepodařilo se načíst soubor .ics.",
+      "cannot_connect":  "Nelze se připojit — zkontrolujte URL."
     }
   }
 }
