@@ -13,7 +13,7 @@ async def async_setup_entry(
     entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    resolved = {key: resolve_dates(key, entry.options) for key in WASTE_DATA}
+    resolved = {key: resolve_dates(key, entry.data, entry.options) for key in WASTE_DATA}
 
     entities: list[SensorEntity] = []
     for key, data in WASTE_DATA.items():
