@@ -102,10 +102,45 @@ def parse_dates(dates_str: str) -> list[date]:
     return sorted(result)
 
 
-def resolve_dates(key: str, options: dict) -> list[date]:
-    if key in options and options[key].strip():
-        return parse_dates(options[key])
+def resolve_dates(key: str, entry_data: dict, entry_options: dict) -> list[date]:
+    """Priorita: options (editované uživatelem) → data (z první instalace) → výchozí."""
+    for src in (entry_options, entry_data):
+        if key in src and src[key] and src[key].strip():
+            return parse_dates(src[key])
     return WASTE_DATA[key]["dates"]
+
+
+def parse_ics(content: str) -> dict[str, list[date]]:
+    """Parsuje ICS obsah, vrátí {název_události: [datumy]}."""
+    events: dict[str, list[date]] = {}
+    current: dict[str, object] = {}
+
+    # Rozbalíme přeložené řádky (ICS standard: řádek začínající mezerou = pokračování)
+    lines: list[str] = []
+    for raw in content.splitlines():
+        if raw.startswith((" ", "\t")) and lines:
+            lines[-1] += raw[1:]
+        else:
+            lines.append(raw)
+
+    for line in lines:
+        if line == "BEGIN:VEVENT":
+            current = {}
+        elif line.upper().startswith("SUMMARY:"):
+            current["summary"] = line.split(":", 1)[1].strip()
+        elif line.upper().startswith("DTSTART"):
+            value = line.split(":")[-1].strip()[:8]
+            try:
+                current["date"] = date(int(value[:4]), int(value[4:6]), int(value[6:8]))
+            except (ValueError, IndexError):
+                pass
+        elif line == "END:VEVENT":
+            s = current.get("summary")
+            d = current.get("date")
+            if s and d:
+                events.setdefault(s, []).append(d)
+
+    return {k: sorted(v) for k, v in events.items()}
 
 
 def _next_date(dates: list[date]) -> date | None:
