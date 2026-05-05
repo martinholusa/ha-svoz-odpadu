@@ -1,7 +1,7 @@
 {
   "domain": "svoz_odpadu",
   "name": "Svoz Odpadu",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "config_flow": true,
   "documentation": "https://github.com/martinholusa/ha-svoz-odpadu",
   "requirements": [],
