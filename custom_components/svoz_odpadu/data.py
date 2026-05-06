@@ -8,7 +8,16 @@ WASTE_DATA: dict[str, dict] = {
         "label": "Papír",
         "icon": "mdi:newspaper-variant-outline",
         "emoji": "📄",
+        "popis": (
+            "Modrý pytel.\n"
+            "✅ Patří sem: Noviny, časopisy, katalogy, neznečištěné papírové sáčky, kartony, krabice, kancelářský papír, knihy, sešity, obalový papír, reklamní letáky.\n"
+            "❌ Nepatří sem: Kopírák, voskovaný papír, hygienické potřeby, papír znečištěný potravinami, použité plenky, textil, sklo, plasty, nebezpečný odpad."
+        ),
         "dates": [
+            date(2026, 1, 13),
+            date(2026, 2, 10),
+            date(2026, 3, 2),
+            date(2026, 4, 7),
             date(2026, 5, 5),
             date(2026, 6, 16),
             date(2026, 7, 14),
@@ -23,7 +32,16 @@ WASTE_DATA: dict[str, dict] = {
         "label": "Plasty",
         "icon": "mdi:recycle",
         "emoji": "♻️",
+        "popis": (
+            "Žlutý pytel — plasty, tetrapack i kovové obaly dohromady.\n"
+            "✅ PLASTY: PET lahve, fólie, mikrotenové sáčky, sáčky od cukrovinek a chipsů, igelitové tašky, neznečištěné plastové obaly (kelímky od jogurtů, másla, sýrů), vypláchnuté HDPE obaly (kečupy, šampony, čisticí prostředky), obalový polystyren, plastové hračky.\n"
+            "✅ TETRAPACK: Nápojové kartony od mléka, džusů, vína.\n"
+            "✅ KOVOVÉ OBALY: Vypláchnuté konzervy, plechovky od nápojů, drobné kovové předměty, sprejové nádobky, kovová víčka, prázdné obaly od čajových svíček."
+        ),
         "dates": [
+            date(2026, 1, 21),
+            date(2026, 2, 18),
+            date(2026, 3, 26),
             date(2026, 4, 30),
             date(2026, 5, 28),
             date(2026, 6, 25),
@@ -39,7 +57,21 @@ WASTE_DATA: dict[str, dict] = {
         "label": "Komunální",
         "icon": "mdi:trash-can-outline",
         "emoji": "🗑️",
+        "popis": (
+            "Černé popelnice. Svoz v pondělí v sudých týdnech.\n"
+            "✅ Patří sem: Vše, co nelze roztřídit do ostatních kontejnerů — zbytky jídla, znečištěné obaly, hygienické potřeby, popel (studený), keramika, porcelán.\n"
+            "❌ Nepatří sem: Tříděný odpad (plasty, papír, sklo, bio), nebezpečný odpad, elektrozařízení, léky, baterie, velkoobjemový odpad."
+        ),
         "dates": [
+            date(2026, 1, 5),
+            date(2026, 1, 19),
+            date(2026, 2, 2),
+            date(2026, 2, 16),
+            date(2026, 3, 2),
+            date(2026, 3, 16),
+            date(2026, 3, 30),
+            date(2026, 4, 13),
+            date(2026, 4, 27),
             date(2026, 5, 11),
             date(2026, 5, 25),
             date(2026, 6, 8),
@@ -59,11 +91,38 @@ WASTE_DATA: dict[str, dict] = {
             date(2026, 12, 21),
         ],
     },
+    "mobilni": {
+        "label": "Mobilní sběrna",
+        "icon": "mdi:truck",
+        "emoji": "🚛",
+        "popis": (
+            "Velkoobjemový a nebezpečný odpad z domácností. Svoz od 6:00 do 20:00 hod.\n"
+            "✅ Patří sem: Nábytek, matrace, koberce, spotřebiče, elektrozařízení, barvy, ředidla, kyseliny, oleje, léky, baterie, pneumatiky.\n"
+            "❌ Nepatří sem: Běžný komunální odpad, tříděný odpad (plasty, papír, sklo, bio), stavební suť."
+        ),
+        "dates": [
+            date(2026, 3, 14),
+            date(2026, 9, 5),
+        ],
+    },
     "bioodpad": {
         "label": "Bioodpad",
         "icon": "mdi:leaf",
         "emoji": "🌿",
+        "popis": (
+            "Hnědá popelnice. Svoz v pátek v lichém týdnu, od 6:00 do 20:00 hod.\n"
+            "✅ Patří sem: Tráva, listí, nať ze zeleniny, jádřince, pecky a slupky z ovoce a zeleniny, bramborové slupky, kávový odpad, čajové sáčky, piliny, hobliny, plevel, seno, sláma, dřevní hmota, větve (do délky 25 cm a průřezu 2 cm).\n"
+            "❌ Nepatří sem: Hlína, potraviny, sklo, plasty, tetrapack, papír, kovy, textil, léky, guma, komunální odpad, vaječné skořápky, kosti, uhynulá zvířata, popel, podestýlky zvířat, hřbitovní odpad, nebezpečný odpad, elektroodpad.\n"
+            "⚠️ Pytle s bioodpadem stojící u popelnice nebudou sbírány. Obsah zakázaných odpadů = pokuta min. 1 000 Kč."
+        ),
         "dates": [
+            date(2026, 1, 16),
+            date(2026, 2, 13),
+            date(2026, 2, 27),
+            date(2026, 3, 13),
+            date(2026, 3, 27),
+            date(2026, 4, 10),
+            date(2026, 4, 24),
             date(2026, 5, 8),
             date(2026, 5, 22),
             date(2026, 6, 5),
