@@ -91,22 +91,30 @@ class WasteOverviewSensor(SensorEntity):
                 "label": data["label"],
                 "den_datum": _format_den_datum(nd),
                 "odpocet": _format_odpocet(days),
+                "popis": data.get("popis", ""),
             })
 
         rows.sort(key=lambda r: r["days"])
 
-        lines = []
+        html_rows = []
         for r in rows:
             d = r["days"]
             badge = "🔴" if d <= 0 else "🟠" if d == 1 else "🟡" if d <= 3 else "🟢"
-            lines.append(
-                f"| {r['emoji']} | **{r['label']}** | {r['den_datum']} | {badge} {r['odpocet']} |"
+            popis_html = r["popis"].replace("\n", "<br>")
+            html_rows.append(
+                f"<tr>"
+                f"<td>{r['emoji']}</td>"
+                f"<td><b>{r['label']}</b></td>"
+                f"<td>{r['den_datum']}</td>"
+                f"<td>{badge}&nbsp;{r['odpocet']}</td>"
+                f"<td><details><summary>ℹ️</summary>{popis_html}</details></td>"
+                f"</tr>"
             )
 
         table = (
-            "| | Typ | Datum | Odpočet |\n"
-            "|:---:|:---|:---|:---|\n"
-            + "\n".join(lines)
+            "<table><tr><th></th><th>Typ</th><th>Datum</th><th>Odpočet</th><th></th></tr>"
+            + "".join(html_rows)
+            + "</table>"
         )
 
         self._attr_native_value = rows[0]["days"] if rows else 999
