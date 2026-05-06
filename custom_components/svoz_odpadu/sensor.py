@@ -49,6 +49,7 @@ class WasteSensor(SensorEntity):
                 "datum": None,
                 "label": self._data["label"],
                 "emoji": self._data["emoji"],
+                "popis": self._data.get("popis", ""),
             }
             return
 
@@ -61,6 +62,7 @@ class WasteSensor(SensorEntity):
             "datum": nd.isoformat(),
             "label": self._data["label"],
             "emoji": self._data["emoji"],
+            "popis": self._data.get("popis", ""),
         }
 
 
