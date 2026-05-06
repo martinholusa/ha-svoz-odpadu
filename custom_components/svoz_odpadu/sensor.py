@@ -100,19 +100,17 @@ class WasteOverviewSensor(SensorEntity):
         for r in rows:
             d = r["days"]
             badge = "🔴" if d <= 0 else "🟠" if d == 1 else "🟡" if d <= 3 else "🟢"
-            popis_html = r["popis"].replace("\n", "<br>")
+            popis_attr = r["popis"].replace("&", "&amp;").replace('"', "&quot;")
             html_rows.append(
-                f"<tr>"
-                f"<td>{r['emoji']}</td>"
-                f"<td><b>{r['label']}</b></td>"
-                f"<td>{r['den_datum']}</td>"
-                f"<td>{badge}&nbsp;{r['odpocet']}</td>"
-                f"<td><details><summary>ℹ️</summary>{popis_html}</details></td>"
-                f"</tr>"
+                f'<tr>'
+                f'<td>{r["emoji"]} <b>{r["label"]}</b> <span title="{popis_attr}">ℹ️</span></td>'
+                f'<td>{r["den_datum"]}</td>'
+                f'<td>{badge}&nbsp;{r["odpocet"]}</td>'
+                f'</tr>'
             )
 
         table = (
-            "<table><tr><th></th><th>Typ</th><th>Datum</th><th>Odpočet</th><th></th></tr>"
+            "<table><tr><th>Typ</th><th>Datum</th><th>Odpočet</th></tr>"
             + "".join(html_rows)
             + "</table>"
         )
