@@ -9,8 +9,8 @@ WASTE_DATA: dict[str, dict] = {
         "icon": "mdi:newspaper-variant-outline",
         "emoji": "📄",
         "popis": (
-            "🔵 Modrý pytel\n"
-            "✅ Noviny, časopisy, katalogy, kartony, krabice, kancelářský papír, knihy, sešity, obalový papír, reklamní letáky, neznečištěné papírové sáčky\n"
+            "🔵 Modrý pytel\n\n"
+            "✅ Noviny, časopisy, katalogy, kartony, krabice, kancelářský papír, knihy, sešity, obalový papír, reklamní letáky, neznečištěné papírové sáčky\n\n"
             "❌ Kopírák, voskovaný papír, hygienické potřeby, papír znečištěný jídlem, plenky, textil, sklo, plasty, nebezpečný odpad"
         ),
         "dates": [
@@ -33,9 +33,9 @@ WASTE_DATA: dict[str, dict] = {
         "icon": "mdi:recycle",
         "emoji": "♻️",
         "popis": (
-            "🟡 Žlutý pytel — plasty, tetrapack i kovy dohromady\n"
-            "♻️ Plasty: PET lahve, fólie, mikrotenové sáčky, igelitové tašky, kelímky (jogurt, máslo, sýr), HDPE obaly (kečup, šampon, čisticí prostředky), polystyren, plastové hračky\n"
-            "🧃 Tetrapack: kartony od mléka, džusů, vína\n"
+            "🟡 Žlutý pytel — plasty, tetrapack i kovy dohromady\n\n"
+            "♻️ Plasty: PET lahve, fólie, mikrotenové sáčky, igelitové tašky, kelímky (jogurt, máslo, sýr), HDPE obaly (kečup, šampon, čisticí prostředky), polystyren, plastové hračky\n\n"
+            "🧃 Tetrapack: kartony od mléka, džusů, vína\n\n"
             "🥫 Kovy: konzervy, plechovky od nápojů, sprejové nádobky, kovová víčka, obaly od čajových svíček"
         ),
         "dates": [
@@ -58,8 +58,8 @@ WASTE_DATA: dict[str, dict] = {
         "icon": "mdi:trash-can-outline",
         "emoji": "🗑️",
         "popis": (
-            "⚫ Černá popelnice — svoz každý sudý týden v pondělí\n"
-            "✅ Zbytky jídla, znečištěné obaly, hygienické potřeby, studený popel, keramika, porcelán\n"
+            "⚫ Černá popelnice — svoz každý sudý týden v pondělí\n\n"
+            "✅ Zbytky jídla, znečištěné obaly, hygienické potřeby, studený popel, keramika, porcelán\n\n"
             "❌ Tříděný odpad (plasty, papír, sklo, bio), nebezpečný odpad, elektro, léky, baterie, velkoobjemový odpad"
         ),
         "dates": [
@@ -96,8 +96,8 @@ WASTE_DATA: dict[str, dict] = {
         "icon": "mdi:truck",
         "emoji": "🚛",
         "popis": (
-            "🚛 Přistavení od 6:00 do 20:00\n"
-            "✅ Nábytek, matrace, koberce, spotřebiče, elektro, barvy, ředidla, kyseliny, oleje, léky, baterie, pneumatiky\n"
+            "🚛 Přistavení od 6:00 do 20:00\n\n"
+            "✅ Nábytek, matrace, koberce, spotřebiče, elektro, barvy, ředidla, kyseliny, oleje, léky, baterie, pneumatiky\n\n"
             "❌ Komunální odpad, tříděný odpad, stavební suť"
         ),
         "dates": [
@@ -110,9 +110,9 @@ WASTE_DATA: dict[str, dict] = {
         "icon": "mdi:leaf",
         "emoji": "🌿",
         "popis": (
-            "🟤 Hnědá popelnice — svoz každý lichý týden v pátek, 6:00–20:00\n"
-            "✅ Tráva, listí, zelenina, slupky z ovoce, kávový odpad, čajové sáčky, piliny, hobliny, větve (max. 25 cm, průřez 2 cm)\n"
-            "❌ Hlína, potraviny, sklo, plasty, papír, kovy, léky, kosti, popel, podestýlka zvířat, hřbitovní odpad, elektroodpad\n"
+            "🟤 Hnědá popelnice — svoz každý lichý týden v pátek, 6:00–20:00\n\n"
+            "✅ Tráva, listí, zelenina, slupky z ovoce, kávový odpad, čajové sáčky, piliny, hobliny, větve (max. 25 cm, průřez 2 cm)\n\n"
+            "❌ Hlína, potraviny, sklo, plasty, papír, kovy, léky, kosti, popel, podestýlka zvířat, hřbitovní odpad, elektroodpad\n\n"
             "⚠️ Pytle u popelnice nebudou sbírány! Pokuta za zakázaný obsah min. 1 000 Kč."
         ),
         "dates": [
