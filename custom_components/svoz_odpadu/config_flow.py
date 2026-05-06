@@ -3,8 +3,6 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.selector import (
-    FileSelector,
-    FileSelectorConfig,
     SelectSelector,
     SelectSelectorConfig,
     SelectSelectorMode,
@@ -63,24 +61,20 @@ class _IcsMixin:
 
     async def _show_ics_file(self, user_input, errors=None):
         if user_input is not None:
-            file_path = user_input.get("ics_file", "")
-            try:
-                def _read():
-                    with open(file_path, encoding="utf-8") as f:
-                        return f.read()
-                content = await self.hass.async_add_executor_job(_read)
+            content = user_input.get("ics_content", "").strip()
+            if not content:
+                errors = {"base": "ics_empty"}
+            else:
                 self._parsed_ics = parse_ics(content)
                 if not self._parsed_ics:
-                    errors = {"base": "ics_empty"}
+                    errors = {"base": "ics_parse_error"}
                 else:
                     return await self.async_step_ics_mapping()
-            except Exception:
-                errors = {"base": "ics_parse_error"}
         return self.async_show_form(
             step_id="ics_file",
             data_schema=vol.Schema({
-                vol.Required("ics_file"): FileSelector(
-                    FileSelectorConfig(accept=".ics,text/calendar")
+                vol.Required("ics_content"): TextSelector(
+                    TextSelectorConfig(multiline=True)
                 )
             }),
             errors=errors or {},
