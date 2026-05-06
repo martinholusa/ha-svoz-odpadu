@@ -100,7 +100,7 @@ class WasteOverviewSensor(SensorEntity):
         for r in rows:
             d = r["days"]
             badge = "🔴" if d <= 0 else "🟠" if d == 1 else "🟡" if d <= 3 else "🟢"
-            popis_attr = r["popis"].replace("&", "&amp;").replace('"', "&quot;")
+            popis_attr = r["popis"].replace("&", "&amp;").replace('"', "&quot;").replace("\n", "&#10;")
             html_rows.append(
                 f'<tr>'
                 f'<td>{r["emoji"]} <b>{r["label"]}</b></td>'
