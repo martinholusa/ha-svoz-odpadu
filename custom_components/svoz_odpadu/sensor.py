@@ -103,14 +103,15 @@ class WasteOverviewSensor(SensorEntity):
             popis_attr = r["popis"].replace("&", "&amp;").replace('"', "&quot;")
             html_rows.append(
                 f'<tr>'
-                f'<td>{r["emoji"]} <b>{r["label"]}</b> <span title="{popis_attr}">ℹ️</span></td>'
+                f'<td>{r["emoji"]} <b>{r["label"]}</b></td>'
                 f'<td>{r["den_datum"]}</td>'
                 f'<td>{badge}&nbsp;{r["odpocet"]}</td>'
+                f'<td align="right"><abbr title="{popis_attr}">ℹ️</abbr></td>'
                 f'</tr>'
             )
 
         table = (
-            "<table><tr><th>Typ</th><th>Datum</th><th>Odpočet</th></tr>"
+            "<table><tr><th>Typ</th><th>Datum</th><th>Odpočet</th><th></th></tr>"
             + "".join(html_rows)
             + "</table>"
         )
