@@ -8,8 +8,8 @@
       },
       "ics_file": {
         "title": "Import ze souboru .ics",
-        "description": "Vyberte soubor .ics z vašeho počítače.",
-        "data": { "ics_file": "Soubor .ics" }
+        "description": "Otevřete soubor `.ics` v textovém editoru (Poznámkový blok, TextEdit…), vyberte vše (**Ctrl+A**) a vložte obsah sem.",
+        "data": { "ics_content": "Obsah souboru .ics" }
       },
       "ics_url": {
         "title": "Import z URL",
